@@ -93,21 +93,30 @@ flowchart LR
 ### 1. Environment (Optional)
 Copy `.env.example` to `.env` if you want to configure an optional IBM Quantum token (`QISKIT_IBM_TOKEN`) for live hardware execution. Without a token, all circuits run locally on `Qiskit AerSimulator`.
 
+- Docker Compose reads `.env` automatically.
+- The backend does not load `.env` itself, so for a local run export the token in your shell first: `export QISKIT_IBM_TOKEN=...`.
+- Live hardware is only used when a request sets `use_ibm_hardware=true` on `/api/circuit/run`. The bundled UI does not send this flag, so the UI always runs on Aer.
+
 ### 2. Backend (Python 3.11+ / FastAPI / Qiskit)
+Run these from the **repository root** (the app is imported as `backend.main`).
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 # Windows: .venv\Scripts\activate  |  macOS/Linux: source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn backend.main:app --reload --port 8000
+python -m pip install -r requirements.txt
+python -m uvicorn backend.main:app --reload --port 8000
 ```
+Use `python -m uvicorn` (not a bare `uvicorn`) so the server runs with the virtual environment's interpreter. A globally installed `uvicorn` will fail with `ModuleNotFoundError: No module named 'fastapi'`.
+
+Verify with `http://127.0.0.1:8000/api/health`; interactive API docs are at `http://127.0.0.1:8000/docs`.
 
 ### 3. Frontend (React + Vite + Tailwind)
+Requires Node.js 20+ (the Docker image uses Node 22). In a second terminal:
 ```bash
 cd frontend
-npm install
+npm ci
 npm run dev
 ```
-Open `http://localhost:5173`. Vite proxies `/api/*` requests to `http://127.0.0.1:8000`.
+Open `http://localhost:5173`. Vite proxies `/api/*` requests to `http://127.0.0.1:8000`, so start the backend first. Use `npm ci` rather than `npm install` to install exactly what `package-lock.json` specifies without rewriting it.
 
 ### 4. Docker Compose
 ```bash
@@ -116,7 +125,7 @@ docker compose up --build
 
 ### 5. Run Tests & Production Build
 ```bash
-pytest backend/tests -v
+python -m pytest backend/tests -v
 cd frontend && npm run build
 ```
 
