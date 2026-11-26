@@ -42,6 +42,52 @@ Qudoku/
 └── LICENSE
 ```
 
+### Architecture Diagram
+
+```mermaid
+flowchart LR
+    User([Learner / Browser])
+
+    subgraph FE["Frontend: React + Vite + Tailwind (:5173)"]
+        App["App.tsx"]
+        Store["store/boardReducer<br/>(undo/redo, cascade)"]
+        Comps["SudokuBoard · QuantumPanel<br/>LessonDrawer · QuizModal · HistogramChart"]
+        Data["data/curriculum · i18n<br/>(EN / HI / GU)"]
+        Client["api/client.ts<br/>fetch /api/*"]
+        App --- Store
+        App --- Comps
+        App --- Data
+        App --> Client
+    end
+
+    Proxy{{"Vite dev proxy<br/>/api → VITE_API_TARGET"}}
+
+    subgraph BE["Backend: FastAPI (:8000), backend/main.py"]
+        Routes["REST routes<br/>/health · /puzzles · /analyze · /manual-cluster<br/>/circuit/synthesize · /circuit/run<br/>/collapse · /hint · /hardware-benchmarks"]
+        Engine["entanglement_engine.py<br/>Exact Cover (Algorithm X)<br/>candidates · cluster detection · collapse cascade"]
+        Quantum["quantum_service.py<br/>Qiskit circuit synthesis<br/>(Superposition · Bell · GHZ · W)"]
+        Puzzles["puzzles.py<br/>6 curated puzzles"]
+        Cache[("cached_hardware/*.json<br/>ibm_torino · ibm_brisbane<br/>4,096-shot benchmarks")]
+    end
+
+    subgraph EXEC["Execution targets"]
+        Aer["Qiskit AerSimulator<br/>ideal baseline + noise models<br/>(Heron · Eagle · custom)"]
+        IBM["IBM Quantum Runtime<br/>SamplerV2 on least-busy QPU"]
+    end
+
+    User --> App
+    Client --> Proxy --> Routes
+    Routes --> Engine
+    Routes --> Quantum
+    Routes --> Puzzles
+    Routes --> Cache
+    Quantum --> Aer
+    Quantum -. "use_ibm_hardware=true<br/>+ QISKIT_IBM_TOKEN<br/>(API only, not sent by UI)" .-> IBM
+    IBM -. "on error: fall back to<br/>Heron noise on Aer" .-> Aer
+```
+
+**Request flow for "Measure & Collapse":** `App.tsx` → `api.collapseCluster()` → `POST /api/collapse` → `run_cluster_circuit()` (Aer, optional noise) → sampled bitstring → `apply_measurement_collapse()` (forced-single cascade) → updated board and trace returned to the UI. The cluster itself comes from an earlier `/api/analyze` or `/api/manual-cluster` call and is sent back in the request body.
+
 ## Quickstart
 
 ### 1. Environment (Optional)
