@@ -1,0 +1,92 @@
+import type { LessonSpec, QuizQuestion } from "../types/quantum";
+
+export const LESSONS: LessonSpec[] = [
+  {
+    id: "lesson-superposition",
+    concept: "SUPERPOSITION",
+    puzzleId: "tutorial-superposition",
+    titleKey: "lesson_1_title",
+    summaryKey: "lesson_1_summary",
+    bodyKey: "lesson_1_body",
+    formula: "|ψ⟩ = (1/√k) ∑ |d⟩",
+    takeawayKey: "lesson_1_takeaway",
+  },
+  {
+    id: "lesson-bell",
+    concept: "BELL",
+    puzzleId: "tutorial-bell",
+    titleKey: "lesson_2_title",
+    summaryKey: "lesson_2_summary",
+    bodyKey: "lesson_2_body",
+    formula: "|Ψ⁺⟩ = (|01⟩ + |10⟩) / √2",
+    takeawayKey: "lesson_2_takeaway",
+  },
+  {
+    id: "lesson-ghz",
+    concept: "GHZ",
+    puzzleId: "tutorial-ghz",
+    titleKey: "lesson_3_title",
+    summaryKey: "lesson_3_summary",
+    bodyKey: "lesson_3_body",
+    formula: "|GHZₙ⟩ = (|010…⟩ + |101…⟩) / √2",
+    takeawayKey: "lesson_3_takeaway",
+  },
+  {
+    id: "lesson-wstate",
+    concept: "W",
+    puzzleId: "tutorial-wstate",
+    titleKey: "lesson_4_title",
+    summaryKey: "lesson_4_summary",
+    bodyKey: "lesson_4_body",
+    formula: "|Wₙ⟩ = (|100…⟩ + |010…⟩ + … + |00…1⟩) / √n",
+    takeawayKey: "lesson_4_takeaway",
+  },
+  {
+    id: "lesson-noise",
+    concept: "NOISE",
+    puzzleId: "sandbox-classic",
+    titleKey: "lesson_5_title",
+    summaryKey: "lesson_5_summary",
+    bodyKey: "lesson_5_body",
+    formula: "F_constraint = Shots(valid) / Shots(total)",
+    takeawayKey: "lesson_5_takeaway",
+  },
+];
+
+export const QUIZ_QUESTIONS: QuizQuestion[] = [
+  {
+    id: "q1",
+    questionKey: "quiz_q1",
+    optionKeys: ["quiz_q1_o1", "quiz_q1_o2", "quiz_q1_o3", "quiz_q1_o4"],
+    correctIndex: 1,
+    explanationKey: "quiz_q1_exp",
+  },
+  {
+    id: "q2",
+    questionKey: "quiz_q2",
+    optionKeys: ["quiz_q2_o1", "quiz_q2_o2", "quiz_q2_o3", "quiz_q2_o4"],
+    correctIndex: 2,
+    explanationKey: "quiz_q2_exp",
+  },
+  {
+    id: "q3",
+    questionKey: "quiz_q3",
+    optionKeys: ["quiz_q3_o1", "quiz_q3_o2", "quiz_q3_o3", "quiz_q3_o4"],
+    correctIndex: 0,
+    explanationKey: "quiz_q3_exp",
+  },
+  {
+    id: "q4",
+    questionKey: "quiz_q4",
+    optionKeys: ["quiz_q4_o1", "quiz_q4_o2", "quiz_q4_o3", "quiz_q4_o4"],
+    correctIndex: 3,
+    explanationKey: "quiz_q4_exp",
+  },
+  {
+    id: "q5",
+    questionKey: "quiz_q5",
+    optionKeys: ["quiz_q5_o1", "quiz_q5_o2", "quiz_q5_o3", "quiz_q5_o4"],
+    correctIndex: 1,
+    explanationKey: "quiz_q5_exp",
+  },
+];

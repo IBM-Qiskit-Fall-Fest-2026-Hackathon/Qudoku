@@ -1,0 +1,27 @@
+{
+  "id": "ibm_brisbane_ghz_4q",
+  "backend_name": "ibm_brisbane",
+  "processor_family": "IBM Eagle r3",
+  "num_qubits_qpu": 127,
+  "state_type": "GHZ",
+  "circuit_qubits": 4,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0092,
+  "median_readout_error": 0.0215,
+  "counts": {
+    "0101": 1752,
+    "1010": 1764,
+    "0100": 98,
+    "1011": 94,
+    "0001": 88,
+    "1110": 82,
+    "0111": 74,
+    "1000": 70,
+    "0000": 41,
+    "1111": 33
+  },
+  "valid_bitstrings": ["0101", "1010"],
+  "constraint_satisfaction_rate": 0.8584,
+  "notes": "Pre-run cached hardware benchmark for 4-qubit alternating GHZ chain on IBM Eagle r3."
+}

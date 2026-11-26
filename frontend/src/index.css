@@ -1,0 +1,43 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .quantum-glow-cyan {
+    box-shadow: 0 0 18px rgba(34, 211, 238, 0.25), inset 0 0 12px rgba(34, 211, 238, 0.08);
+  }
+  .quantum-glow-violet {
+    box-shadow: 0 0 18px rgba(167, 139, 250, 0.28), inset 0 0 12px rgba(167, 139, 250, 0.08);
+  }
+  .quantum-glow-emerald {
+    box-shadow: 0 0 18px rgba(52, 211, 153, 0.25), inset 0 0 12px rgba(52, 211, 153, 0.08);
+  }
+}
+
+@keyframes pulseTether {
+  0%, 100% {
+    stroke-opacity: 0.72;
+  }
+  50% {
+    stroke-opacity: 1;
+  }
+}
+
+.tether-animate {
+  animation: pulseTether 2.4s ease-in-out infinite;
+}
+
+@keyframes collapseFlash {
+  0% {
+    transform: scale(1.12);
+    background-color: rgba(34, 211, 238, 0.45);
+  }
+  100% {
+    transform: scale(1);
+    background-color: transparent;
+  }
+}
+
+.collapse-flash {
+  animation: collapseFlash 0.9s ease-out;
+}

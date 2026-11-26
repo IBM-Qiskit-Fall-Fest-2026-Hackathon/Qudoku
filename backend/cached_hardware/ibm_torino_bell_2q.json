@@ -1,0 +1,21 @@
+{
+  "id": "ibm_torino_bell_2q",
+  "backend_name": "ibm_torino",
+  "processor_family": "IBM Heron r1",
+  "num_qubits_qpu": 133,
+  "state_type": "BELL",
+  "circuit_qubits": 2,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0038,
+  "median_readout_error": 0.0112,
+  "counts": {
+    "01": 1984,
+    "10": 2012,
+    "00": 52,
+    "11": 48
+  },
+  "valid_bitstrings": ["01", "10"],
+  "constraint_satisfaction_rate": 0.9756,
+  "notes": "Pre-run cached hardware benchmark for anti-correlated Bell state |Psi+> on IBM Heron (tunable-coupler CZ native gate)."
+}

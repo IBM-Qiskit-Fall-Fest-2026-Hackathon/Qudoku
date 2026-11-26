@@ -1,0 +1,21 @@
+{
+  "id": "ibm_brisbane_bell_2q",
+  "backend_name": "ibm_brisbane",
+  "processor_family": "IBM Eagle r3",
+  "num_qubits_qpu": 127,
+  "state_type": "BELL",
+  "circuit_qubits": 2,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0092,
+  "median_readout_error": 0.0215,
+  "counts": {
+    "01": 1912,
+    "10": 1936,
+    "00": 128,
+    "11": 120
+  },
+  "valid_bitstrings": ["01", "10"],
+  "constraint_satisfaction_rate": 0.9395,
+  "notes": "Pre-run cached hardware benchmark for anti-correlated Bell state |Psi+> on IBM Eagle r3 (ECR native gate)."
+}

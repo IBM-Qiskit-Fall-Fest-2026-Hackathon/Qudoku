@@ -1,0 +1,27 @@
+{
+  "id": "ibm_brisbane_w_4q",
+  "backend_name": "ibm_brisbane",
+  "processor_family": "IBM Eagle r3",
+  "num_qubits_qpu": 127,
+  "state_type": "W",
+  "circuit_qubits": 4,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0092,
+  "median_readout_error": 0.0215,
+  "counts": {
+    "1000": 814,
+    "0100": 808,
+    "0010": 798,
+    "0001": 796,
+    "0000": 318,
+    "1100": 142,
+    "0110": 128,
+    "0011": 124,
+    "1010": 92,
+    "1001": 76
+  },
+  "valid_bitstrings": ["1000", "0100", "0010", "0001"],
+  "constraint_satisfaction_rate": 0.7852,
+  "notes": "Pre-run cached hardware benchmark for 4-qubit W-state on IBM Eagle r3 (higher circuit depth increases amplitude damping & readout leakage)."
+}

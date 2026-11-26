@@ -1,0 +1,25 @@
+{
+  "id": "ibm_torino_w_3q",
+  "backend_name": "ibm_torino",
+  "processor_family": "IBM Heron r1",
+  "num_qubits_qpu": 133,
+  "state_type": "W",
+  "circuit_qubits": 3,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0038,
+  "median_readout_error": 0.0112,
+  "counts": {
+    "100": 1244,
+    "010": 1230,
+    "001": 1226,
+    "000": 162,
+    "110": 78,
+    "101": 74,
+    "011": 68,
+    "111": 14
+  },
+  "valid_bitstrings": ["100", "010", "001"],
+  "constraint_satisfaction_rate": 0.9033,
+  "notes": "Pre-run cached hardware benchmark for 3-qubit W-state (|100> + |010> + |001>)/sqrt(3) on IBM Heron."
+}

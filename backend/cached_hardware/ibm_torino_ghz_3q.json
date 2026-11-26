@@ -1,0 +1,25 @@
+{
+  "id": "ibm_torino_ghz_3q",
+  "backend_name": "ibm_torino",
+  "processor_family": "IBM Heron r1",
+  "num_qubits_qpu": 133,
+  "state_type": "GHZ",
+  "circuit_qubits": 3,
+  "shots": 4096,
+  "calibration_date": "2026-10-18",
+  "median_2q_error": 0.0038,
+  "median_readout_error": 0.0112,
+  "counts": {
+    "010": 1894,
+    "101": 1906,
+    "000": 62,
+    "111": 58,
+    "011": 46,
+    "100": 44,
+    "001": 45,
+    "110": 41
+  },
+  "valid_bitstrings": ["010", "101"],
+  "constraint_satisfaction_rate": 0.9277,
+  "notes": "Pre-run cached hardware benchmark for 3-qubit alternating GHZ chain (|010> + |101>)/sqrt(2) on IBM Heron."
+}
