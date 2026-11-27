@@ -1,8 +1,12 @@
-export type Language = "en" | "hi" | "gu";
+export type Language = "en" | "hi" | "gu" | "mr" | "kn" | "ta" | "te" | "bn";
 
-export type StateType = "SUPERPOSITION" | "BELL" | "GHZ" | "W";
+export type ThemeMode = "dark" | "light";
+
+export type StateType = "SUPERPOSITION" | "BELL" | "GHZ" | "W" | "CUSTOM";
 
 export type NoiseProfile = "ideal" | "ibm_heron" | "ibm_eagle" | "custom";
+
+export type GateOverride = "normal" | "flip_q0" | "no_entangle";
 
 export type EntanglementMode = "auto" | "manual";
 
@@ -14,10 +18,12 @@ export interface CellCoord {
 export interface EntanglementCluster {
   id: string;
   state_type: StateType;
+  grid_size?: number;
   cells: CellCoord[];
   target_digit?: number | null;
   candidate_pair?: number[] | null;
   parity: number[];
+  custom_terms?: string[];
   house_label: string;
   mechanism: string;
   consistent: boolean;
@@ -46,8 +52,24 @@ export interface PuzzleSpec {
   description_key: string;
   difficulty: string;
   concept_focus: string;
+  grid_size?: number;
+  box_rows?: number;
+  box_cols?: number;
+  symbols?: string[];
   givens: number[][];
   solution: number[][];
+  customTitle?: string;
+  isCustom?: boolean;
+}
+
+export interface SessionGameRecord {
+  puzzle: PuzzleSpec;
+  board: number[][];
+  notes: number[][][];
+  eliminated: Record<string, number[]>;
+  elapsedSeconds: number;
+  solved: boolean;
+  updatedAt: string;
 }
 
 export interface AnalyzeBoardResponse {
@@ -71,6 +93,7 @@ export interface CircuitSynthesisResult {
   state_formula: string;
   qubit_labels: string[];
   valid_bitstrings: string[];
+  display_labels: Record<string, string>;
 }
 
 export interface SimulationOutcome {
@@ -82,9 +105,14 @@ export interface SimulationOutcome {
   probabilities: Record<string, number>;
   ideal_probabilities: Record<string, number>;
   valid_bitstrings: string[];
+  display_labels: Record<string, string>;
   constraint_satisfaction_rate: number;
   sampled_bitstring: string;
+  sampled_label: string;
   sampled_is_valid: boolean;
+  mitigated?: boolean;
+  unmitigated_satisfaction_rate?: number | null;
+  gate_override?: GateOverride;
   circuit: CircuitSynthesisResult;
   backend_label: string;
 }
@@ -124,19 +152,27 @@ export interface HintResponse {
 
 export interface LessonSpec {
   id: string;
-  concept: StateType | "NOISE";
+  concept: StateType | "NOISE" | "SCALING";
   puzzleId: string;
+  warmupPuzzleId: string;
+  duration: string;
   titleKey: string;
   summaryKey: string;
+  analogyKey: string;
   bodyKey: string;
   formula: string;
+  formulaExplainKey: string;
+  stepsKey: string;
+  misconceptionKey: string;
   takeawayKey: string;
 }
 
 export interface QuizQuestion {
   id: string;
+  topic: string;
   questionKey: string;
   optionKeys: string[];
   correctIndex: number;
   explanationKey: string;
+  tipKey: string;
 }

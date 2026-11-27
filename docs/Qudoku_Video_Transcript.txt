@@ -1,0 +1,87 @@
+QUDOKU — 3-MINUTE DEMO & PITCH VIDEO TRANSCRIPT
+IBM Qiskit Fall Fest 2026 | Quantum for Humanity | Track 3: Education
+Target Length: ~3:00 minutes (~435 spoken words at ~145 WPM)
+
+========================================================================
+0:00 - 0:30 | HOOK & PROBLEM (~70 words)
+========================================================================
+[Screen: Open Slide 1 or Qudoku landing view in Dark Mode on the 4x4 board]
+
+Most beginners hit a wall when learning quantum computing—not because the ideas
+are impossible, but because textbooks start with abstract Dirac notation, Bloch
+spheres, and English-only tools before showing what entanglement actually does.
+
+Meet Qudoku—an interactive quantum Sudoku learning platform built for Track 3:
+Education. Everyone already understands Sudoku rules. Qudoku turns those
+familiar row, column, and sub-box constraints directly into live Qiskit
+SamplerV2 circuits.
+
+
+========================================================================
+0:30 - 1:05 | ACCESSIBLE BOARD & SUDOKU FOUNDATIONS (~85 words)
+========================================================================
+[Screen: Click a cell on the board, toggle Light/Dark Mode, hover an InfoTooltip icon, and briefly open the Board Size selector (4x4 to 16x16 Hex)]
+
+Instead of forcing beginners into a 9x9 wall of numbers right away, Qudoku
+supports five grid sizes—4x4, 6x6, 9x9, 12x12, and 16x16 Hex—across 22 curated
+tutorials and sandboxes, plus custom uploads validated in milliseconds by a
+Strict Mode Exact Cover solver.
+
+We designed the UI to feel welcoming from second one: you get Sudoku.com-style
+row, column, and sub-box highlights, matching-symbol highlights on filled cells,
+a Light and Dark Mode toggle, and beginner hover tooltips on every control.
+
+
+========================================================================
+1:05 - 1:55 | LIVE QUANTUM CIRCUITS, GATE LAB & MITIGATION (~125 words)
+========================================================================
+[Screen: Select Tutorial 2 (Bell Pairs) on 4x4, highlight the glowing Cyan Bell tether, show the Qiskit diagram & histogram, toggle Gate Lab + X(q0) and M^-1 mitigation, then click Measure & Collapse]
+
+Now watch how Sudoku constraints become quantum physics. Any empty cell holds
+multiple legal candidates at once—a superposition you can inspect with Inspect
+|psi>. When two cells share a bivalue pair, Qudoku detects a Bell pair—or you
+can manually select cells to synthesize Bell, GHZ, W-state, or custom wildcard
+ket circuits in Qiskit 2.6.
+
+Running SamplerV2 simulates shots non-destructively so learners can experiment
+safely: cyan bars show valid solutions, while rose bars reveal constraint
+violations when you inject IBM Heron or Eagle noise, or intentionally break
+entanglement in the Gate Lab. Turning on M^-1 readout error mitigation lifts
+constraint fidelity back toward 98 to 100 percent—and clicking Measure and
+Collapse collapses the circuit onto the board.
+
+
+========================================================================
+1:55 - 2:30 | CLASSICAL BASELINE & HONEST SCALING (~80 words)
+========================================================================
+[Screen: Switch briefly to the Cached Hardware Benchmarks tab or Slide 6 scaling table]
+
+We also keep the science honest. Our classical Exact Cover solver checks 4x4
+through 16x16 puzzles in 0.16 to 5.62 milliseconds. Today's noisy processors
+cannot beat that yet—so Qudoku uses classical propagation for instant
+validation, while teaching why quantum matters at scale: generalized N by N
+Sudoku is NP-complete, quantum registers compress N symbols into ceil(log2 N)
+qubits, and Grover search cuts unstructured branching quadratically from O(K)
+to O(sqrt(K)).
+
+
+========================================================================
+2:30 - 3:00 | 8-LANGUAGE EDUCATION & CLOSING (~75 words)
+========================================================================
+[Screen: Switch language live (e.g., Hindi, Tamil, or Marathi), open the full-page Lessons (6 modules) and Quiz (8 questions)]
+
+Finally, quantum education shouldn't depend on knowing English. Qudoku includes
+full-page 6-module beginner lessons and an 8-question interactive quiz
+completely localized across 8 languages: English, Hindi, Gujarati, Marathi,
+Kannada, Tamil, Telugu, and Bengali.
+
+Tested across 22 unique boards, backed by FastAPI and Qiskit Aer, and ready for
+any classroom—Qudoku turns logic puzzles into real quantum intuition. Thank you!
+
+
+========================================================================
+QUICK RECORDING TIPS
+========================================================================
+- Pause ~1 second at each [Screen] cue so viewers can read the circuit diagram,
+  histogram bars, and live language switch.
+- Spoken at ~145 words per minute, this script runs right around 3:00 minutes.

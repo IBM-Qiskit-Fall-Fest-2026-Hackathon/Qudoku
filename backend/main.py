@@ -24,6 +24,7 @@ from backend.entanglement_engine import (
 from backend.puzzles import PUZZLES, PUZZLE_MAP, PuzzleSpec
 from backend.quantum_service import (
     CircuitSynthesisResult,
+    GateOverride,
     HardwareBenchmark,
     NoiseProfile,
     SimulationOutcome,
@@ -68,7 +69,10 @@ class ManualClusterRequest(BaseModel):
     eliminated: Dict[str, List[int]] = Field(default_factory=dict)
     cells: List[CellCoord]
     state_type: StateType
-    target_digit: Optional[int] = Field(default=None, ge=1, le=9)
+    target_digit: Optional[int] = Field(default=None, ge=1, le=16)
+    digit_a: Optional[int] = Field(default=None, ge=1, le=16)
+    digit_b: Optional[str] = None
+    custom_state: Optional[str] = None
 
 
 class RunCircuitRequest(BaseModel):
@@ -77,6 +81,8 @@ class RunCircuitRequest(BaseModel):
     noise_profile: NoiseProfile = "ideal"
     custom_noise_level: float = Field(default=0.02, ge=0.0, le=0.20)
     use_ibm_hardware: bool = False
+    mitigate_readout: bool = False
+    gate_override: GateOverride = "normal"
 
 
 class CollapseRequest(BaseModel):
@@ -155,6 +161,9 @@ def create_manual_cluster(req: ManualClusterRequest) -> EntanglementCluster:
         cells=req.cells,
         state_type=req.state_type,
         target_digit=req.target_digit,
+        digit_a=req.digit_a,
+        digit_b=req.digit_b,
+        custom_state=req.custom_state,
     )
 
 
@@ -172,6 +181,8 @@ def execute_circuit(req: RunCircuitRequest) -> SimulationOutcome:
         noise_profile=req.noise_profile,
         custom_noise_level=req.custom_noise_level,
         use_ibm_hardware=req.use_ibm_hardware,
+        mitigate_readout=req.mitigate_readout,
+        gate_override=req.gate_override,
     )
 
 
@@ -207,10 +218,11 @@ def get_hint(req: HintRequest) -> HintResponse:
         return HintResponse(found=False, reason="Current board has no valid solution.")
     solution = sols[0]
     candidates = compute_candidates(req.board)
+    size = len(req.board)
     best_cell = None
-    best_len = 10
-    for r in range(9):
-        for c in range(9):
+    best_len = size + 1
+    for r in range(size):
+        for c in range(size):
             if req.board[r][c] == 0:
                 clen = len(candidates[r][c])
                 if 0 < clen < best_len:
@@ -219,12 +231,15 @@ def get_hint(req: HintRequest) -> HintResponse:
     if not best_cell:
         return HintResponse(found=False, reason="Board is already solved!")
     hr, hc = best_cell
+    from backend.entanglement_engine import value_to_symbol
+
+    sym = value_to_symbol(solution[hr][hc], size)
     return HintResponse(
         found=True,
         row=hr,
         col=hc,
         digit=solution[hr][hc],
-        reason=f"Cell R{hr+1}C{hc+1} had {best_len} superposition candidate(s) and collapses to {solution[hr][hc]}.",
+        reason=f"Cell R{hr+1}C{hc+1} had {best_len} superposition candidate(s) and resolves to {sym}.",
     )
 
 

@@ -1,0 +1,199 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1400" width="2400" height="1400">
+<rect width="2400" height="1400" fill="#070B14"/>
+<rect x="50" y="38" width="2300" height="108" rx="18" fill="#0F1629" stroke="#223055" stroke-width="2"/>
+<rect x="50" y="38" width="12" height="108" rx="4" fill="#22D3EE"/>
+<text x="90" y="98" fill="#F8FAFC" font-family="Segoe UI, Inter, sans-serif" font-size="42" font-weight="700" text-anchor="start">Qudoku — System Architecture</text>
+<text x="90" y="128" fill="#94A3B8" font-family="Segoe UI, Inter, sans-serif" font-size="22" font-weight="400" text-anchor="start">Interactive Generic Quantum Sudoku Platform (4×4–16×16 Hex)  ·  React + TS  ·  FastAPI  ·  Exact Cover  ·  Qiskit 2.6 + Aer SamplerV2</text>
+<rect x="1730" y="62" width="590" height="58" rx="12" fill="#141D35" stroke="#223055" stroke-width="1"/>
+<circle cx="1768" cy="91" r="8" fill="#22D3EE"/>
+<text x="1784" y="94" fill="#CBD5E1" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="start">Frontend / Bell</text>
+<circle cx="1953" cy="91" r="8" fill="#A78BFA"/>
+<text x="1969" y="94" fill="#CBD5E1" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="start">API / GHZ</text>
+<circle cx="2108" cy="91" r="8" fill="#34D399"/>
+<text x="2124" y="94" fill="#CBD5E1" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="start">Engine / W</text>
+<circle cx="2243" cy="91" r="8" fill="#FBBF24"/>
+<text x="2259" y="94" fill="#CBD5E1" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="start">Data</text>
+<rect x="50" y="180" width="600" height="1130" rx="20" fill="#0F1629" stroke="#22D3EE" stroke-width="2"/>
+<text x="78" y="226" fill="#22D3EE" font-family="Segoe UI, Inter, sans-serif" font-size="24" font-weight="700" text-anchor="start">1. Frontend Client (/frontend · Vite :5173)</text>
+<rect x="78" y="254" width="544" height="185" rx="14" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<rect x="78" y="254" width="544" height="6" rx="3" fill="#22D3EE"/>
+<rect x="436" y="270" width="170" height="28" rx="8" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="521" y="290" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">boardReducer.ts</text>
+<text x="98" y="293" fill="#22D3EE" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">State &amp; Reducer</text>
+<text x="98" y="329" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Strict Mode MRV Stop-at-2 + Auto/Manual modes</text>
+<text x="98" y="356" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Auto-Assign Entangled &amp; Auto-Fill Single Note</text>
+<text x="98" y="383" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• 30-step Undo/Redo + sudokuConfig.ts (4×4..16×16)</text>
+<text x="98" y="409" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">LOAD_PUZZLE | SET_DIGIT | AUTO_FILL_SINGLE</text>
+<rect x="78" y="464" width="544" height="210" rx="14" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<rect x="78" y="464" width="544" height="6" rx="3" fill="#22D3EE"/>
+<rect x="436" y="480" width="170" height="28" rx="8" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="521" y="500" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">SudokuBoard.tsx</text>
+<text x="98" y="503" fill="#22D3EE" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Generic Board &amp; SVG</text>
+<text x="98" y="539" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Dynamic 4×4, 6×6, 9×9, 12×12 &amp; 16×16 Hex (0–F)</text>
+<text x="98" y="566" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Scaled (N×100)² SVG quantum tether overlay:</text>
+<text x="98" y="593" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  Cyan (Bell) · Violet (GHZ) · Emerald (W) · Pink (Custom)</text>
+<text x="98" y="620" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Peer (row/col/box) &amp; same-digit highlights + |psi&gt;</text>
+<text x="98" y="647" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Dark/Light theme + keyboard (0–F) &amp; symbol pad</text>
+<rect x="78" y="699" width="544" height="210" rx="14" fill="#141D35" stroke="#A78BFA" stroke-width="2"/>
+<rect x="78" y="699" width="544" height="6" rx="3" fill="#A78BFA"/>
+<rect x="426" y="715" width="180" height="28" rx="8" fill="#070B14" stroke="#A78BFA" stroke-width="1"/>
+<text x="516" y="735" fill="#A78BFA" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">QuantumPanel.tsx</text>
+<text x="98" y="738" fill="#A78BFA" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Quantum Workbench</text>
+<text x="98" y="774" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Auto clusters + Manual Bell/GHZ/W/Custom ket builder</text>
+<text x="98" y="801" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Gate Lab (+X bit-flip / drop CNOT) &amp; M⁻¹ Mitigation</text>
+<text x="98" y="828" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Non-destructive SamplerV2 simulation (256/512/1024)</text>
+<text x="98" y="855" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• HistogramChart.tsx: valid vs. leaked shots</text>
+<text x="98" y="882" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Cached IBM QPU 4,096-shot comparison tab</text>
+<rect x="78" y="934" width="544" height="190" rx="14" fill="#141D35" stroke="#34D399" stroke-width="2"/>
+<rect x="78" y="934" width="544" height="6" rx="3" fill="#34D399"/>
+<rect x="456" y="950" width="150" height="28" rx="8" fill="#070B14" stroke="#34D399" stroke-width="1"/>
+<text x="531" y="970" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">8 LANGUAGES</text>
+<text x="98" y="973" fill="#34D399" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Multilingual Curriculum</text>
+<text x="98" y="1009" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• LessonsPage.tsx: 6 beginner modules + demo load</text>
+<text x="98" y="1036" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• QuizPage.tsx: 8 concept Qs + InfoTooltip hints</text>
+<text x="98" y="1063" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• i18n/: EN, HI, GU, MR, KN, TA, TE, BN (8 languages)</text>
+<text x="98" y="1090" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Light &amp; Dark UI + Dirac formulas &amp; takeaways</text>
+<rect x="78" y="1149" width="544" height="134" rx="14" fill="#141D35" stroke="#FBBF24" stroke-width="2"/>
+<rect x="78" y="1149" width="544" height="6" rx="3" fill="#FBBF24"/>
+<rect x="456" y="1165" width="150" height="28" rx="8" fill="#070B14" stroke="#FBBF24" stroke-width="1"/>
+<text x="531" y="1185" fill="#FBBF24" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">api/client.ts</text>
+<text x="98" y="1188" fill="#FBBF24" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">HTTP Proxy &amp; Typed Client</text>
+<text x="98" y="1223" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">• Vite proxy: /api/* -&gt; VITE_API_TARGET (:8000)</text>
+<text x="98" y="1251" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Typed JSON requests for analysis, Qiskit, collapse</text>
+<rect x="770" y="180" width="430" height="1130" rx="20" fill="#0F1629" stroke="#A78BFA" stroke-width="2"/>
+<text x="798" y="226" fill="#A78BFA" font-family="Segoe UI, Inter, sans-serif" font-size="24" font-weight="700" text-anchor="start">2. FastAPI Gateway (main.py)</text>
+<rect x="796" y="254" width="378" height="92" rx="12" fill="#141D35" stroke="#34D399" stroke-width="2"/>
+<text x="814" y="284" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">GET /api/health</text>
+<text x="814" y="317" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Engine readiness check</text>
+<rect x="796" y="374" width="378" height="92" rx="12" fill="#141D35" stroke="#FBBF24" stroke-width="2"/>
+<text x="814" y="404" fill="#FBBF24" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">GET /api/puzzles</text>
+<text x="814" y="437" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">List 22 generic grids (4×4..16×16)</text>
+<rect x="796" y="494" width="378" height="92" rx="12" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<text x="814" y="524" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/analyze</text>
+<text x="814" y="557" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Validate + Exact Cover + clusters</text>
+<rect x="796" y="614" width="378" height="92" rx="12" fill="#141D35" stroke="#A78BFA" stroke-width="2"/>
+<text x="814" y="644" fill="#A78BFA" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/manual-cluster</text>
+<text x="814" y="677" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Validate user-selected qubits</text>
+<rect x="796" y="734" width="378" height="92" rx="12" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<text x="814" y="764" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/circuit/synthesize</text>
+<text x="814" y="797" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Qiskit diagram, depth &amp; QASM</text>
+<rect x="796" y="854" width="378" height="92" rx="12" fill="#141D35" stroke="#A78BFA" stroke-width="2"/>
+<text x="814" y="884" fill="#A78BFA" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/circuit/run</text>
+<text x="814" y="917" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Execute shots with noise profile</text>
+<rect x="796" y="974" width="378" height="92" rx="12" fill="#141D35" stroke="#34D399" stroke-width="2"/>
+<text x="814" y="1004" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/collapse</text>
+<text x="814" y="1037" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Sample bitstring &amp; run cascade</text>
+<rect x="796" y="1094" width="378" height="92" rx="12" fill="#141D35" stroke="#FBBF24" stroke-width="2"/>
+<text x="814" y="1124" fill="#FBBF24" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">POST /api/hint</text>
+<text x="814" y="1157" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Next forced Exact-Cover digit</text>
+<rect x="796" y="1200" width="378" height="86" rx="12" fill="#141D35" stroke="#FB7185" stroke-width="2"/>
+<text x="814" y="1230" fill="#FB7185" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">GET /api/hardware-benchmarks</text>
+<text x="814" y="1263" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">Load Eagle/Heron cached JSONs</text>
+<rect x="1290" y="180" width="560" height="1130" rx="20" fill="#0F1629" stroke="#34D399" stroke-width="2"/>
+<text x="1318" y="226" fill="#34D399" font-family="Segoe UI, Inter, sans-serif" font-size="24" font-weight="700" text-anchor="start">3. Classical &amp; Quantum Engines</text>
+<rect x="1318" y="254" width="504" height="500" rx="14" fill="#141D35" stroke="#34D399" stroke-width="2"/>
+<rect x="1318" y="254" width="504" height="6" rx="3" fill="#34D399"/>
+<rect x="1566" y="270" width="240" height="28" rx="8" fill="#070B14" stroke="#34D399" stroke-width="1"/>
+<text x="1686" y="290" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">entanglement_engine.py</text>
+<text x="1338" y="293" fill="#34D399" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Exact Cover &amp; Clusters</text>
+<text x="1338" y="328" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">solve_exact_cover(board, limit=2)</text>
+<text x="1338" y="356" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Generic 4N² Exact Cover + bitmask MRV</text>
+<text x="1338" y="383" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Verifies solvability, uniqueness &amp; hints</text>
+<text x="1338" y="409" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">detect_entanglement_clusters(board, cands)</text>
+<text x="1338" y="437" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Bivalue {a,b} BFS 2-coloring -&gt; GHZ / Bell</text>
+<text x="1338" y="464" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • 3N-house scan -&gt; Conjugate Bell &amp; W-states</text>
+<text x="1338" y="491" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Custom ket wildcard parser (|*12&gt;+|12*&gt;)</text>
+<text x="1338" y="517" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">build_manual_cluster(...)</text>
+<text x="1338" y="545" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Validates peer &amp; house consistency</text>
+<text x="1338" y="571" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">apply_measurement_collapse(...)</text>
+<text x="1338" y="599" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Projects sampled bits + up to 12 cascade steps</text>
+<rect x="1318" y="782" width="504" height="500" rx="14" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<rect x="1318" y="782" width="504" height="6" rx="3" fill="#22D3EE"/>
+<rect x="1606" y="798" width="200" height="28" rx="8" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="1706" y="818" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">quantum_service.py</text>
+<text x="1338" y="821" fill="#22D3EE" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Qiskit Synthesis &amp; Noise</text>
+<text x="1338" y="856" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">synthesize_cluster_circuit(cluster)</text>
+<text x="1338" y="884" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Bell: H -&gt; CX -&gt; X   |   GHZ: H -&gt; CX* -&gt; X*</text>
+<text x="1338" y="911" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • W-State: X(0) -&gt; CRY(theta_i) -&gt; CX cascade</text>
+<text x="1338" y="938" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Superposition: H / exact StatePreparation</text>
+<text x="1338" y="965" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Exports OpenQASM 2.0, depth &amp; text diagram</text>
+<text x="1338" y="991" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">_build_noise_model(profile, level)</text>
+<text x="1338" y="1019" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • 1Q/2Q depolarizing + ReadoutError models</text>
+<text x="1338" y="1046" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Profiles: ideal, ibm_heron, ibm_eagle, custom</text>
+<text x="1338" y="1072" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">run_cluster_circuit(cluster, shots, ...)</text>
+<text x="1338" y="1100" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Executes via Qiskit Aer SamplerV2 primitive</text>
+<text x="1338" y="1127" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  • Gate Lab perturbation &amp; M⁻¹ Readout Mitigation</text>
+<rect x="1940" y="180" width="410" height="1130" rx="20" fill="#0F1629" stroke="#FBBF24" stroke-width="2"/>
+<text x="1968" y="226" fill="#FBBF24" font-family="Segoe UI, Inter, sans-serif" font-size="24" font-weight="700" text-anchor="start">4. Runtime &amp; Data</text>
+<rect x="1968" y="254" width="354" height="240" rx="14" fill="#141D35" stroke="#FBBF24" stroke-width="2"/>
+<rect x="1968" y="254" width="354" height="6" rx="3" fill="#FBBF24"/>
+<rect x="2186" y="270" width="120" height="28" rx="8" fill="#070B14" stroke="#FBBF24" stroke-width="1"/>
+<text x="2246" y="290" fill="#FBBF24" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">puzzles.py</text>
+<text x="1988" y="293" fill="#FBBF24" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Curated Puzzles</text>
+<text x="1988" y="329" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• 20 Tutorials (T1–T4 across all 5 sizes):</text>
+<text x="1988" y="356" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  4×4, 6×6, 9×9, 12×12 &amp; 16×16 Hex</text>
+<text x="1988" y="383" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• 2 Full 9×9 Sandboxes:</text>
+<text x="1988" y="410" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  Medium &amp; Hard Challenge</text>
+<text x="1988" y="437" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Strict Mode unique-solution verified</text>
+<rect x="1968" y="524" width="354" height="245" rx="14" fill="#141D35" stroke="#FB7185" stroke-width="2"/>
+<rect x="1968" y="524" width="354" height="6" rx="3" fill="#FB7185"/>
+<rect x="2126" y="540" width="180" height="28" rx="8" fill="#070B14" stroke="#FB7185" stroke-width="1"/>
+<text x="2216" y="560" fill="#FB7185" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">cached_hardware/</text>
+<text x="1988" y="563" fill="#FB7185" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Cached QPU</text>
+<text x="1988" y="599" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• 6 pre-run 4,096-shot JSONs</text>
+<text x="1988" y="626" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• ibm_torino (Heron r1, 133q)</text>
+<text x="1988" y="653" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• ibm_brisbane (Eagle r3, 127q)</text>
+<text x="1988" y="680" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Bell, GHZ-3/4 &amp; W-3/4 runs</text>
+<text x="1988" y="707" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Real 2Q &amp; readout error rates</text>
+<rect x="1968" y="799" width="354" height="240" rx="14" fill="#141D35" stroke="#22D3EE" stroke-width="2"/>
+<rect x="1968" y="799" width="354" height="6" rx="3" fill="#22D3EE"/>
+<rect x="2186" y="815" width="120" height="28" rx="8" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="2246" y="835" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">qiskit-aer</text>
+<text x="1988" y="838" fill="#22D3EE" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">Aer SamplerV2</text>
+<text x="1988" y="874" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Local shots (256 / 512 / 1024)</text>
+<text x="1988" y="901" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Ideal &amp; Heron/Eagle emulation</text>
+<text x="1988" y="928" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• M⁻¹ readout error mitigation</text>
+<text x="1988" y="955" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Non-destructive histogram sim</text>
+<rect x="1968" y="1069" width="354" height="213" rx="14" fill="#141D35" stroke="#A78BFA" stroke-width="2"/>
+<rect x="1968" y="1069" width="354" height="6" rx="3" fill="#A78BFA"/>
+<rect x="2206" y="1085" width="100" height="28" rx="8" fill="#070B14" stroke="#A78BFA" stroke-width="1"/>
+<text x="2256" y="1105" fill="#A78BFA" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Optional</text>
+<text x="1988" y="1108" fill="#A78BFA" font-family="Segoe UI, Inter, sans-serif" font-size="21" font-weight="700" text-anchor="start">IBM Runtime</text>
+<text x="1988" y="1144" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Live SamplerV2 via</text>
+<text x="1988" y="1170" fill="#F8FAFC" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">  QISKIT_IBM_TOKEN env var</text>
+<text x="1988" y="1198" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">• Automatic Aer fallback</text>
+<text x="1988" y="1225" fill="#CBD5E1" font-family="Segoe UI, Inter, sans-serif" font-size="17" font-weight="400" text-anchor="start">  when offline / no token</text>
+<polyline points="622,1216 732,1216 732,540 796,540" fill="none" stroke="#22D3EE" stroke-width="4"/>
+<polygon points="796,540 782,546 782,533" fill="#22D3EE"/>
+<rect x="681" y="420" width="103" height="28" rx="7" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="732" y="440" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">HTTP JSON</text>
+<polyline points="796,1020 686,1020 686,345 622,345" fill="none" stroke="#34D399" stroke-width="4"/>
+<polygon points="622,345 635,338 635,351" fill="#34D399"/>
+<rect x="639" y="845" width="94" height="28" rx="7" fill="#070B14" stroke="#34D399" stroke-width="1"/>
+<text x="686" y="865" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Collapse</text>
+<polyline points="1174,540 1318,540" fill="none" stroke="#34D399" stroke-width="4"/>
+<polygon points="1318,540 1304,546 1304,533" fill="#34D399"/>
+<rect x="1180" y="490" width="130" height="28" rx="7" fill="#070B14" stroke="#34D399" stroke-width="1"/>
+<text x="1245" y="510" fill="#34D399" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Solve/Detect</text>
+<polyline points="1174,900 1318,900" fill="none" stroke="#22D3EE" stroke-width="4"/>
+<polygon points="1318,900 1304,906 1304,893" fill="#22D3EE"/>
+<rect x="1189" y="850" width="112" height="28" rx="7" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="1245" y="870" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Synthesize</text>
+<polyline points="1822,374 1968,374" fill="none" stroke="#FBBF24" stroke-width="4"/>
+<polygon points="1968,374 1954,380 1954,367" fill="#FBBF24"/>
+<rect x="1857" y="325" width="76" height="28" rx="7" fill="#070B14" stroke="#FBBF24" stroke-width="1"/>
+<text x="1895" y="345" fill="#FBBF24" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Boards</text>
+<polyline points="1822,646 1968,646" fill="none" stroke="#FB7185" stroke-width="4"/>
+<polygon points="1968,646 1954,652 1954,639" fill="#FB7185"/>
+<rect x="1839" y="597" width="112" height="28" rx="7" fill="#070B14" stroke="#FB7185" stroke-width="1"/>
+<text x="1895" y="617" fill="#FB7185" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Benchmarks</text>
+<polyline points="1822,918 1968,918" fill="none" stroke="#22D3EE" stroke-width="4"/>
+<polygon points="1968,918 1954,924 1954,911" fill="#22D3EE"/>
+<rect x="1853" y="869" width="85" height="28" rx="7" fill="#070B14" stroke="#22D3EE" stroke-width="1"/>
+<text x="1895" y="889" fill="#22D3EE" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">Aer Run</text>
+<polyline points="1822,1175 1968,1175" fill="none" stroke="#A78BFA" stroke-width="4" stroke-dasharray="8 6"/>
+<polygon points="1968,1175 1954,1181 1954,1168" fill="#A78BFA"/>
+<rect x="1871" y="1126" width="49" height="28" rx="7" fill="#070B14" stroke="#A78BFA" stroke-width="1"/>
+<text x="1895" y="1146" fill="#A78BFA" font-family="Consolas, JetBrains Mono, monospace" font-size="15" font-weight="700" text-anchor="middle">QPU</text>
+<text x="50" y="1361" fill="#94A3B8" font-family="Consolas, JetBrains Mono, monospace" font-size="16" font-weight="400" text-anchor="start">Docker Compose: frontend (:5173) + backend (:8000)   |   Verified: 7/7 pytest + 5/5 TS unit tests + Vite/TS production build</text>
+</svg>

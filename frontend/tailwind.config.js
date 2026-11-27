@@ -17,7 +17,17 @@ export default {
         },
       },
       fontFamily: {
-        sans: ['"Inter"', '"Noto Sans Devanagari"', '"Noto Sans Gujarati"', "system-ui", "sans-serif"],
+        sans: [
+          '"Inter"',
+          '"Noto Sans Devanagari"',
+          '"Noto Sans Gujarati"',
+          '"Noto Sans Kannada"',
+          '"Noto Sans Tamil"',
+          '"Noto Sans Telugu"',
+          '"Noto Sans Bengali"',
+          "system-ui",
+          "sans-serif",
+        ],
         mono: ['"JetBrains Mono"', '"Fira Code"', "monospace"],
       },
     },

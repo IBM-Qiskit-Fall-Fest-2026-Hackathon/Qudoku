@@ -3,6 +3,7 @@ import type {
   CellCoord,
   CollapseResponse,
   EntanglementCluster,
+  GateOverride,
   HardwareBenchmark,
   HintResponse,
   NoiseProfile,
@@ -43,26 +44,35 @@ export const api = {
     eliminated: Record<string, number[]>,
     cells: CellCoord[],
     state_type: StateType,
-    target_digit?: number
+    digit_a?: number | null,
+    digit_b?: string | null,
+    custom_state?: string | null
   ) =>
     postJson<EntanglementCluster>("/manual-cluster", {
       board,
       eliminated,
       cells,
       state_type,
-      target_digit: target_digit ?? null,
+      target_digit: digit_a ?? null,
+      digit_a: digit_a ?? null,
+      digit_b: digit_b ?? null,
+      custom_state: custom_state ?? null,
     }),
   runCircuit: (
     cluster: EntanglementCluster,
     shots: number,
     noise_profile: NoiseProfile,
-    custom_noise_level: number
+    custom_noise_level: number,
+    mitigate_readout = false,
+    gate_override: GateOverride = "normal"
   ) =>
     postJson<SimulationOutcome>("/circuit/run", {
       cluster,
       shots,
       noise_profile,
       custom_noise_level,
+      mitigate_readout,
+      gate_override,
     }),
   collapseCluster: (
     board: number[][],
