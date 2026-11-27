@@ -11,7 +11,7 @@ import type {
   StateType,
 } from "../types/quantum";
 
-const API_BASE = "/api";
+const API_BASE: string = import.meta.env.VITE_API_BASE || "/api";
 
 async function postJson<T>(path: string, body: unknown): Promise<T> {
   const res = await fetch(`${API_BASE}${path}`, {

@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: qudoku-backend
+    runtime: docker
+    dockerfilePath: ./backend/Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    plan: free # Qiskit is heavy; upgrade to "starter" (1 GB+) if you hit OOM
+    envVars:
+      - key: QISKIT_IBM_TOKEN
+        sync: false # optional; set in the Render dashboard
